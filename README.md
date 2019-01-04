@@ -1,8 +1,10 @@
 # go-exercise
 
+```bash
 # run
-`go run main.go`
+go run main.go
 
 # build
-`go build -tags=jsoniter`
+go build -tags=jsoniter
+```
 

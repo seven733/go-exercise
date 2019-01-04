@@ -1,5 +1,0 @@
-add record
-[GIN] 2018/12/28 - 22:22:05 | 200 |    1.689192ms |             ::1 | GET      /v2/users/5c2629aeed1da192cb8ffa15
-[GIN] 2018/12/28 - 22:22:15 | 200 |    1.929526ms |             ::1 | DELETE   /v2/users/5c2629aeed1da192cb8ffa15
-[GIN] 2018/12/28 - 22:22:21 | 200 |    2.142906ms |             ::1 | GET      /v2/users/5c2629aeed1da192cb8ffa15
-Error #01: not found

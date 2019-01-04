@@ -3,11 +3,8 @@
 	"lname": "Anthony",
 	"age": 31,
 	"email": "123@qq.com",
-	"favouriteColor": "#FFFFFF",
 	"address": [{
-		"street": "Tianfu street",
-		"city": "Chengdu",
-		"planet": "earth",
-		"phone": "12345678123"
+		"street": "tianfu street",
+		"city": "chengdu"
 	}]
 }

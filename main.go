@@ -2,17 +2,13 @@ package main
 
 import (
 	"fmt"
-	"io"
 	"log"
 	"net/http"
-	"os"
 	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/seven/demo/db"
-	"github.com/seven/demo/middlewares"
-	articles "github.com/seven/demo/service/articles"
-	"github.com/seven/demo/service/users"
+	"github.com/seven/demo/route"
 	"golang.org/x/sync/errgroup"
 	validator "gopkg.in/go-playground/validator.v9"
 )
@@ -117,45 +113,6 @@ func loginEndpoint(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"status": "logged success"})
 }
 
-func router() http.Handler {
-	f, _ := os.Create("gin.log")
-	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
-	// 将日志写入文件
-	fmt.Fprintln(gin.DefaultWriter, "add record")
-
-	r := gin.Default()
-	r.Use(middlewares.PrintTest)
-	r.Use(middlewares.Connect)
-	r.Use(middlewares.HandleResponses)
-
-	r.GET("/ping", pong)
-	r.GET("/users", getUsers)
-	r.GET("/users/:name", getUserById)
-	r.GET("/users/:name/*action", userAction)
-	r.GET("/welcome", welcome)
-
-	r.POST("/users", createUser)
-
-	v1 := r.Group("/v1")
-	{
-		v1.POST("/login", loginEndpoint)
-	}
-
-	v2 := r.Group("/v2")
-	{
-		v2.GET("/articles", articles.List)
-		v2.POST("/articles", articles.CreateOne)
-
-		v2.GET("/users", users.List)
-		v2.POST("/users", users.CreateOne)
-		v2.GET("/users/:userId", users.Detail)
-		v2.DELETE("/users/:userId", users.Remove)
-		v2.PUT("/users/:userId", users.Edit)
-	}
-
-	return r
-}
-
 func init() {
 	db.Connect()
 }
@@ -163,14 +120,14 @@ func init() {
 func main() {
 	server01 := &http.Server{
 		Addr:         ":2333",
-		Handler:      router(),
+		Handler:      route.InitRoute(),
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
 	}
 
 	server02 := &http.Server{
 		Addr:         ":2334",
-		Handler:      router(),
+		Handler:      route.InitRoute(),
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,
 	}
