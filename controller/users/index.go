@@ -4,9 +4,11 @@ import (
 	"fmt"
 	"net/http"
 
+	"go-exercise/models"
+
+	userService "go-exercise/service/users"
+
 	"github.com/gin-gonic/gin"
-	"github.com/seven/demo/models"
-	userService "github.com/seven/demo/service/users"
 	validator "gopkg.in/go-playground/validator.v9"
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"

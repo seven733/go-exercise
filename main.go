@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"time"
 
+	"go-exercise/db"
+
+	"go-exercise/route"
+
 	"github.com/gin-gonic/gin"
-	"github.com/seven/demo/db"
-	"github.com/seven/demo/route"
-	"golang.org/x/sync/errgroup"
 	validator "gopkg.in/go-playground/validator.v9"
 )
 
@@ -32,10 +32,6 @@ type User struct {
 	Email     string     `json:"email"validate:"required,email"`
 	Addresses []*Address `json:"address"validate:"required,dive,required"`
 }
-
-var (
-	g errgroup.Group
-)
 
 var userDB = make([]User, 0)
 
@@ -125,22 +121,5 @@ func main() {
 		WriteTimeout: 10 * time.Second,
 	}
 
-	server02 := &http.Server{
-		Addr:         ":2334",
-		Handler:      route.InitRoute(),
-		ReadTimeout:  5 * time.Second,
-		WriteTimeout: 10 * time.Second,
-	}
-
-	g.Go(func() error {
-		return server01.ListenAndServe()
-	})
-
-	g.Go(func() error {
-		return server02.ListenAndServe()
-	})
-
-	if err := g.Wait(); err != nil {
-		log.Fatal(err)
-	}
+	server01.ListenAndServe()
 }

@@ -3,8 +3,9 @@ package middlewares
 import (
 	"fmt"
 
+	"go-exercise/db"
+
 	"github.com/gin-gonic/gin"
-	"github.com/seven/demo/db"
 )
 
 func PrintTest(c *gin.Context) {

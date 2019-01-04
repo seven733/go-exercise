@@ -6,10 +6,13 @@ import (
 	"net/http"
 	"os"
 
+	userController "go-exercise/controller/users"
+
+	"go-exercise/middlewares"
+
+	"go-exercise/service/articles"
+
 	"github.com/gin-gonic/gin"
-	userController "github.com/seven/demo/controller/users"
-	"github.com/seven/demo/middlewares"
-	"github.com/seven/demo/service/articles"
 )
 
 func InitRoute() http.Handler {

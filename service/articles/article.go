@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
+	"go-exercise/models"
+
 	"github.com/gin-gonic/gin"
-	"github.com/seven/demo/models"
 	mgo "gopkg.in/mgo.v2"
 )
 
