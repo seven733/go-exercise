@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"os"
 
-	userController "go-exercise/controller/users"
+	userController "go-exercise/src/controller/users"
 
-	"go-exercise/middlewares"
+	"go-exercise/src/middlewares"
 
-	"go-exercise/service/articles"
+	"go-exercise/src/service/articles"
 
 	"github.com/gin-gonic/gin"
 )

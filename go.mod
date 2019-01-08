@@ -4,9 +4,12 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/gin-contrib/sse v0.0.0-20170109093832-22d885f9ecc7 // indirect
 	github.com/gin-gonic/gin v1.3.0
+	github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8
 	github.com/go-playground/locales v0.12.1 // indirect
 	github.com/go-playground/universal-translator v0.16.0 // indirect
 	github.com/golang/protobuf v1.2.0 // indirect
+	github.com/google/pprof v0.0.0-20181206194817-3ea8567a2e57 // indirect
+	github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6 // indirect
 	github.com/json-iterator/go v1.1.5 // indirect
 	github.com/leodido/go-urn v1.1.0 // indirect
 	github.com/mattn/go-isatty v0.0.4 // indirect

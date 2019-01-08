@@ -5,6 +5,6 @@
 go run main.go
 
 # build
-go build -tags=jsoniter
+go build -o bin/www
 ```
 

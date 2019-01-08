@@ -4,15 +4,14 @@ import (
 	"fmt"
 	"net/http"
 
-	"go-exercise/models"
+	"go-exercise/src/models"
 
 	"github.com/gin-gonic/gin"
-	mgo "gopkg.in/mgo.v2"
+	mgo "github.com/globalsign/mgo"
 )
 
 func CreateOne(c *gin.Context) {
 	db := c.MustGet("db").(*mgo.Database)
-	fmt.Println("myt_db", db)
 	article := models.Article{}
 	err := c.Bind(&article)
 	if err != nil {

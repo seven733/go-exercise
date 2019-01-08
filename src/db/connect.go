@@ -3,7 +3,7 @@ package db
 import (
 	"fmt"
 
-	mgo "gopkg.in/mgo.v2"
+	mgo "github.com/globalsign/mgo"
 )
 
 var (
