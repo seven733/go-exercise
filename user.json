@@ -4,7 +4,7 @@
 	"age": 34,
 	"email": "123@qq.com",
 	"address": [{
-		"street": "tianfu street",
+		"street": "tianfu street ",
 		"city": "chengdu"
 	}]
 }
